@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <nav className="bg-black bg-opacity-10 p-4 flex justify-between items-center">
+    <nav className="bg-black bg-opacity-0.1 p-4 flex justify-between items-center">
       {/* First Column: Logo */}
       <div className="flex-shrink-0">
         <img src="path/to/logo.png" alt="Logo" className="h-8" />
       </div>
+      {/* Hamburger Icon */}
+      <div className="block lg:hidden">
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+          {isMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          )}
+        </button>
+      </div>
       {/* Second Column: Navigation Menu */}
-      <div className="flex space-x-4">
+      <div className={`flex-col lg:flex-row lg:flex space-x-4 justify-items-start ${isMenuOpen ? 'flex' : 'hidden'} lg:flex`}>
         <a href="#" className="text-white">Home</a>
         <a href="#" className="text-white">About Us</a>
         <div className="relative group">
@@ -28,7 +44,7 @@ const Navbar = () => {
         <a href="#" className="text-white">Before and After</a>
       </div>
       {/* Third Column: Search Icon, Appointment Button, Offers Button */}
-      <div className="flex space-x-4">
+      <div className={`flex-col lg:flex-row lg:flex space-x-4 ${isMenuOpen ? 'flex' : 'hidden'} lg:flex`}>
         <button className="text-white">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
