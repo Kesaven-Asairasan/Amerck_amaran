@@ -25,8 +25,8 @@ const Navbar = () => {
       </div>
       {/* Second Column: Navigation Menu */}
       <div className="hidden lg:flex lg:flex-row space-x-4 justify-items-start">
-        <a href="#" className="text-white">Home</a>
-        <a href="#" className="text-white">About Us</a>
+        <a href="/" className="text-white">Home</a>
+        <a href="/aboutus" className="text-white">About Us</a>
         <div className="relative group">
           <button className="text-white">Our Services</button>
           <div className="absolute hidden group-hover:block bg-white text-black mt-2">
@@ -41,7 +41,7 @@ const Navbar = () => {
             <a href="#" className="block px-4 py-2">Condition 2</a>
           </div>
         </div>
-        <a href="#" className="text-white">Before and After</a>
+        <a href="beforeandafter" className="text-white">Before and After</a>
       </div>
       {/* Third Column: Search Icon, Appointment Button, Offers Button */}
       <div className="hidden lg:flex lg:flex-row space-x-4">
